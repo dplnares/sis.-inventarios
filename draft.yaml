@@ -1,28 +1,29 @@
 models:
     Categorie:
         name: string
-        relationship:
+        relationships:
             hasMany: Product
     Product:
-        status: string
         name: string
-        categorie_id: unsignedInteger
-        relationship: 
+        status: string
+        categorie_id: unsignedBigInteger
+        relationships: 
             belongsTo: Categorie
     Storage:
         name: string
         location: string
         status: string
-        relationship:
+        relationships:
             hasMany: Stock
     Stock:
-        product_id: unsignedInteger
-        storage_id: unsignedInteger
+        product_id: unsignedBigInteger
+        storage_id: unsignedBigInteger
         quantity: unsignedInteger
         status: string
-        relationship:
-            belongsTo: Product
-            belongsTo: Storage
+        relationships:
+            belongsTo: 
+                - Product
+                - Storage
             
     
 
